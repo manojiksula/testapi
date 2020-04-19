@@ -1,0 +1,41 @@
+<?xml version="1.0"?>
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" layout="1column" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+	<!-- Add Data before Store Menu-->
+	<!-- <referenceContainer name="store.menu">
+        <block class="Magento\Framework\View\Element\Template" name="custompage" before="-" template="Magento_Theme::sayhello.phtml" />
+	</referenceContainer>-->
+
+ 	<!-- Add Data Before Navigation -->
+	<!-- <referenceContainer name="header.container">
+        <block class="Magento\Framework\View\Element\Template" name="custompage" after="-" template="Magento_Theme::sayhello.phtml" />
+	</referenceContainer> -->
+	<!-- Add Data Before Navigation -->
+	
+	<referenceContainer name="header.panel">
+		 <block class="Magento\Newsletter\Block\Subscribe" name="form.subscribe.header" as="header.subscribe" before="-" template="Magento_Newsletter::subscribe.phtml" ifconfig="newsletter/general/active"/>
+	</referenceContainer>
+
+	 <referenceContainer name="footer">
+	 	<container name="header-wrapper-footer" label="Page Header" as="header-wrapper-footer" htmlTag="div" htmlClass="header content">
+                <block class="Magento\Theme\Block\Html\Header\Logo" name="footer.logo">
+                    <arguments>
+                        <argument name="logo_img_width" xsi:type="number">189</argument>
+                        <argument name="logo_img_height" xsi:type="number">64</argument>
+                    </arguments>
+                </block>
+            </container>
+     </referenceContainer>
+
+	<referenceContainer name="topContainer">
+        <block class="Magento\Framework\View\Element\Template" name="custompage" after="-" template="Magento_Theme::sayhello.phtml" />
+	</referenceContainer>
+	<referenceContainer name="main.content">
+		<block class="Magento\Framework\View\Element\Template" name="custom-block-name" template="Magento_Theme::sayhello.phtml"/>
+	</referenceContainer>
+	<!-- <body>
+        <move element="page.main.title" destination="breadcrumbs" before="-" />
+    </body> -->
+
+
+		
+</page>

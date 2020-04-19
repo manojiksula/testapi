@@ -1,0 +1,421 @@
+{
+	"info": {
+		"_postman_id": "e7191116-8322-45d7-b39b-82b879353ad2",
+		"name": "Magento 2 API",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Custom M2 API",
+			"item": [
+				{
+					"name": "Custom API Create",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "bf2q8th8joo0snshxpga0844askd18ce",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\"slide\": \n\t{\n\t\t\"title\": \"API test\"\n\t}\n}"
+						},
+						"url": {
+							"raw": "http://m2-demo.com/rest/V1/foggylineSliderSlide",
+							"protocol": "http",
+							"host": [
+								"m2-demo",
+								"com"
+							],
+							"path": [
+								"rest",
+								"V1",
+								"foggylineSliderSlide"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Custom M2 getList",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "pjwyci0kbphrstyuvbv9ov91ggpd5ypq",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\t \"search_criteria\": {\r\n\t\t \"filter_groups\": [\r\n\t\t\t {\r\n\t\t\t\t \"filters\": [\r\n\t\t\t\t\t {\r\n\t\t\t\t\t \"field\": \"title\",\r\n\t\t\t\t\t \"value\": \"%test%\",\r\n\t\t\t\t\t \"condition_type\": \"like\"\r\n\t\t\t\t\t }\r\n\t\t\t\t ]\r\n\t\t\t }\r\n\t\t ],\r\n\t\t \"current_page\": 1,\r\n\t\t \"page_size\": 10,\r\n\t\t \"sort_orders\": [\r\n\t\t\t {\r\n\t\t\t\t \"field\": \"slide_id\",\r\n\t\t\t\t \"direction\": \"ASC\"\r\n\t\t\t }\r\n\t\t ]\r\n\t }\r\n}"
+						},
+						"url": {
+							"raw": "http://m2-demo.com/rest/V1/foggylineSliderSlide/search?searchCriteria[filterGroups][0][filters][0][field]=title&searchCriteria[filterGroups][0][filters][0][value]=%api%&searchCriteria[filterGroups][0][filters][0][conditionType]=like&searchCriteria[currentPage]=1&searchCriteria[pageSize]=2",
+							"protocol": "http",
+							"host": [
+								"m2-demo",
+								"com"
+							],
+							"path": [
+								"rest",
+								"V1",
+								"foggylineSliderSlide",
+								"search"
+							],
+							"query": [
+								{
+									"key": "searchCriteria[filterGroups][0][filters][0][field]",
+									"value": "title"
+								},
+								{
+									"key": "searchCriteria[filterGroups][0][filters][0][value]",
+									"value": "%api%"
+								},
+								{
+									"key": "searchCriteria[filterGroups][0][filters][0][conditionType]",
+									"value": "like"
+								},
+								{
+									"key": "searchCriteria[currentPage]",
+									"value": "1"
+								},
+								{
+									"key": "searchCriteria[pageSize]",
+									"value": "2"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Core M2 API",
+			"item": [
+				{
+					"name": "Admin Token",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"username\":\"wsuser\",\n  \"password\":\"password123\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://m2-demo.com/rest/V1/integration/admin/token",
+							"protocol": "http",
+							"host": [
+								"m2-demo",
+								"com"
+							],
+							"path": [
+								"rest",
+								"V1",
+								"integration",
+								"admin",
+								"token"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Product Search Listing",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "oxed1k8vq7lu06gxvcdzr2v7ftzw1mlx",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://m2-demo.com/rest/V1/products?searchCriteria[filterGroups][0][filters][0][field]=sku&searchCriteria[filterGroups][0][filters][0][value]=test&searchCriteria[filterGroups][0][filters][0][conditionType]=like&searchCriteria[filterGroups][0][filters][1][field]=price&searchCriteria[filterGroups][0][filters][1][value]=101&searchCriteria[filterGroups][0][filters][1][conditionType]=gt&searchCriteria[currentPage]=1&searchCriteria[pageSize]=2",
+							"protocol": "http",
+							"host": [
+								"m2-demo",
+								"com"
+							],
+							"path": [
+								"rest",
+								"V1",
+								"products"
+							],
+							"query": [
+								{
+									"key": "searchCriteria[filterGroups][0][filters][0][field]",
+									"value": "sku"
+								},
+								{
+									"key": "searchCriteria[filterGroups][0][filters][0][value]",
+									"value": "test"
+								},
+								{
+									"key": "searchCriteria[filterGroups][0][filters][0][conditionType]",
+									"value": "like"
+								},
+								{
+									"key": "searchCriteria[filterGroups][0][filters][1][field]",
+									"value": "price"
+								},
+								{
+									"key": "searchCriteria[filterGroups][0][filters][1][value]",
+									"value": "101"
+								},
+								{
+									"key": "searchCriteria[filterGroups][0][filters][1][conditionType]",
+									"value": "gt"
+								},
+								{
+									"key": "searchCriteria[currentPage]",
+									"value": "1"
+								},
+								{
+									"key": "searchCriteria[pageSize]",
+									"value": "2"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Customer By Id",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "bf2q8th8joo0snshxpga0844askd18ce",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://m2-demo.com/rest/V1/customers/1",
+							"protocol": "http",
+							"host": [
+								"m2-demo",
+								"com"
+							],
+							"path": [
+								"rest",
+								"V1",
+								"customers",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create Customer",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "bf2q8th8joo0snshxpga0844askd18ce",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n   \"customer\" : {\r\n      \"lastname\" : \"Doe\",\r\n      \"firstname\" : \"Jane\",\r\n      \"email\" : \"jdoe1@example.com\",\r\n      \"store_id\": 1,\r\n      \"website_id\": 1,\r\n      \"addresses\" : [\r\n         {\r\n            \"defaultBilling\" : true,\r\n            \"defaultShipping\" : true,\r\n            \"firstname\" : \"Jane\",\r\n            \"lastname\" : \"Doe\",\r\n            \"region\" : {\r\n               \"regionCode\" : \"NY\",\r\n               \"regionId\" : 43,\r\n               \"region\" : \"New York\"\r\n            },\r\n            \"countryId\" : \"US\",\r\n            \"postcode\" : \"10755\",\r\n            \"city\" : \"Purchase\",\r\n            \"street\" : [\r\n               \"123 Oak Ave\"\r\n            ],\r\n            \"telephone\" : \"512-555-1111\"\r\n         }\r\n      ]\r\n   },\r\n   \"password\" : \"Password1\"\r\n}"
+						},
+						"url": {
+							"raw": "http://m2-demo.com/rest/V1/customers",
+							"protocol": "http",
+							"host": [
+								"m2-demo",
+								"com"
+							],
+							"path": [
+								"rest",
+								"V1",
+								"customers"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Customer",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "bf2q8th8joo0snshxpga0844askd18ce",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://m2-demo.com/rest/V1/customers/1",
+							"protocol": "http",
+							"host": [
+								"m2-demo",
+								"com"
+							],
+							"path": [
+								"rest",
+								"V1",
+								"customers",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Customer",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "bf2q8th8joo0snshxpga0844askd18ce",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n   \"customer\" : {\r\n   \t  \"id\":9,\r\n      \"lastname\" : \"Doe\",\r\n      \"firstname\" : \"Manoj\",\r\n      \"email\" : \"jdoe1@example.com\",\r\n      \"store_id\": 1,\r\n      \"website_id\": 1,\r\n      \"addresses\" : [\r\n         {\r\n            \"defaultBilling\" : true,\r\n            \"defaultShipping\" : true,\r\n            \"firstname\" : \"Jane\",\r\n            \"lastname\" : \"Doe\",\r\n            \"region\" : {\r\n               \"regionCode\" : \"NY\",\r\n               \"regionId\" : 43,\r\n               \"region\" : \"New York\"\r\n            },\r\n            \"countryId\" : \"US\",\r\n            \"postcode\" : \"10755\",\r\n            \"city\" : \"Purchase\",\r\n            \"street\" : [\r\n               \"123 Oak Ave\"\r\n            ],\r\n            \"telephone\" : \"512-555-1111\"\r\n         }\r\n      ]\r\n   },\r\n   \"password\" : \"Password1\"\r\n}"
+						},
+						"url": {
+							"raw": "http://m2-demo.com/rest/V1/customers/9",
+							"protocol": "http",
+							"host": [
+								"m2-demo",
+								"com"
+							],
+							"path": [
+								"rest",
+								"V1",
+								"customers",
+								"9"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Customer Listing ",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "bf2q8th8joo0snshxpga0844askd18ce",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://m2-demo.com/rest/V1/customers/search?searchCriteria[filterGroups][0][filters][0][field]=firstname&searchCriteria[filterGroups][0][filters][0][value]=%manoj%&searchCriteria[filterGroups][0][filters][0][conditionType]=like",
+							"protocol": "http",
+							"host": [
+								"m2-demo",
+								"com"
+							],
+							"path": [
+								"rest",
+								"V1",
+								"customers",
+								"search"
+							],
+							"query": [
+								{
+									"key": "searchCriteria[filterGroups][0][filters][0][field]",
+									"value": "firstname",
+									"description": "m"
+								},
+								{
+									"key": "searchCriteria[filterGroups][0][filters][0][value]",
+									"value": "%manoj%"
+								},
+								{
+									"key": "searchCriteria[filterGroups][0][filters][0][conditionType]",
+									"value": "like"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		}
+	],
+	"protocolProfileBehavior": {}
+}

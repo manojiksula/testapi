@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../../../../vendor/magento/framework/Module/etc/module.xsd">
+  <head>
+    <css src="css/custom-body.css"/>
+  	<css src="css/style.css"/>
+    <css src="css/ie-9.css" ie_condition="IE 9" /> 
+	<!-- <remove src="mage/polyfill.js" /> -->
+  </head>
+</page>
